@@ -18,8 +18,9 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
+        
 
-        screen.blit(bg_img, [-tmr, 0]) #blitで画面表示
+        screen.blit(bg_img, [-(tmr%1000), 0]) #blitで画面表示
         screen.blit(kk_img,[300,200])#こうかとん画面表示
         pg.display.update()
         tmr += 1        
