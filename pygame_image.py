@@ -11,20 +11,25 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg") #サーフェイス=bg_img
     #こうかとん画像2.pngを読み込み、surfaceを生成
+    bg_img2=pg.transform.flip(bg_img,True,False)
     kk_img=pg.image.load("fig/3.png")
     kk_img=pg.transform.flip(kk_img,True,False)
+
 
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-        
+        x=-(tmr%3200)
 
-        screen.blit(bg_img, [-(tmr%1000), 0]) #blitで画面表示
-        screen.blit(kk_img,[300,200])#こうかとん画面表示
+        screen.blit(bg_img, [x, 0]) #blitで画面表示
+        screen.blit(bg_img2,[x+1600,0])
+        screen.blit(bg_img,[x+3200,0])#こうかとん画面表示
+        screen.blit(bg_img2,[x+4800,0])
+        screen.blit(kk_img,[300,200])
         pg.display.update()
         tmr += 1        
-        clock.tick(200)#フレームレート
+        clock.tick(1000)#フレームレート
 
 
 if __name__ == "__main__":
