@@ -24,20 +24,33 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
+        
         x=-(tmr%3200)
+        y=0
 
         key_lst=pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            kk_rect.move_ip((0,-1))
+            dis=0
+            y=-1
+           # kk_rect.move_ip((0,-1))
         if key_lst[pg.K_DOWN]:
-            kk_rect.move_ip((0,1))
+            dis=0
+            y=1
+            #kk_rect.move_ip((0,1))
+        #演習課題2
+
+
         if key_lst[pg.K_LEFT]:
-            kk_rect.move_ip((-1,0))
+            dis=-1
+            #kk_rect.move_ip((-1,0))
         if key_lst[pg.K_RIGHT]:
-            kk_rect.move_ip((1,0))
+            dis=1
+           # kk_rect.move_ip((1,0))
+        #演習課題1
         else:
-            kk_rect.move_ip(-1,0)
-            
+            dis=-1
+        kk_rect.move_ip(dis,y)
+
 
 
 
@@ -54,7 +67,7 @@ def main():
         screen.blit(kk_img,kk_rect)
         pg.display.update()
         tmr += 1        
-        clock.tick(1000)#フレームレート
+        clock.tick(200)#フレームレート
 
 
 if __name__ == "__main__":
