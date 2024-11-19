@@ -26,6 +26,17 @@ def main():
             if event.type == pg.QUIT: return
         x=-(tmr%3200)
 
+        key_lst=pg.key.get_pressed()
+        if key_lst[pg.K_UP]:
+            kk_rect.move_ip((0,-1))
+        if key_lst[pg.K_LEFT]:
+            kk_rect.move_ip((-1,0))
+        if key_lst[pg.K_DOWN]:
+            kk_rect.move_ip((0,1))
+        if key_lst[pg.K_RIGHT]:
+            kk_rect.move_ip((1,0))
+
+
         screen.blit(bg_img, [x, 0]) #blitで画面表示
         screen.blit(bg_img2,[x+1600,0])
         screen.blit(bg_img,[x+3200,0])#こうかとん画面表示
